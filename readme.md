@@ -244,11 +244,16 @@
     git status
     ```
 
-39. Despues los agregamos al stage de git con el comando:
+39. Después los agregamos al stage de git con el comando:
     ```
     git add .
     ```
-38. Creamos el repositorio remoto en GitHub y seguimos las instrucciones para subir nuestro repositorio local, digitando el siguiente código en nuestra terminal:
+
+40. Después realizamos el commit de estos archivos:
+    ```
+    git commit -m "Avance primeras clases Platzi, vista cambio de password, mobile y desktop"
+    ```
+41. Creamos el repositorio remoto en GitHub y seguimos las instrucciones para subir nuestro repositorio local, digitando el siguiente código en nuestra terminal:
     ```
     git remote add origin https://github.com/KGISELLE/yardSalePlatzi.git
     git branch -M main
