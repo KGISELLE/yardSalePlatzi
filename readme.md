@@ -259,3 +259,68 @@
     git branch -M main
     git push -u origin main
     ```
+    <br>
+
+## Dia 2 (Vista Email enviado)
+
+1. Para realizar la vista "emailSent" redisamos el diseño para desktop y para mobile dado.
+
+2. Creamos un nuevo archivo "emailSent.html" para crear el maquetado de esta vista.
+
+3. Según la [clase 7 (Email enviado)](https://platzi.com/clases/2477-frontend-developer-practico/41506-email-enviado/), podemos copiar el código que teniamos de la vista anterior "password", porque mucho de este código se puede reutilizar, lo único es depurar que elemento si coinciden y que no, y modificar algunos elementos, para así darle forma a la nueva vista.
+
+4. Creamos el archivo "emailSent.css" para darle estilos al maquedato anterior y realizamos el mismo procedimiento copiamos los estilos de password y borramos lo que no necesitemos para la vista y modificamos lo necesario.
+
+5. Asi solo nos falta agregar la imagen del icono del correo, el boton de Login y agregar el texto para reenviar el email, en caso de no haberlo recibido.
+    ```html
+    <body>
+        <div class="login">
+            <div class="form-container">
+                <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+                <h1 class="title">Email has been sent!</h1>
+                <p class="subtitle">Please check your inbox for instructions on how to reset the password</p>
+
+                <div class="email-image">
+                    <img src="./icons/email.svg" alt="email">
+                </div>
+
+                <button class="primary-button login-button">Login</button>
+
+                <p>
+                    <span>Didn't receive the email?</span>
+                    <a href="/">Resend</a>
+                </p>
+    
+            </div>
+        </div>
+    </body>
+    ```
+    ```css
+    /* estilos agregados para vista emailSent */
+    .email-image {
+        width: 132px;
+        height: 132px;
+        border-radius: 50%;
+        background-color: var(--text-input-field);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 24px;
+    }
+    .email-image img{
+        width: 80px;
+    }
+    .resend {
+        font-size: var(--sm);
+    }
+    .resend span {
+        color: var(--very-light-pink);
+    }
+    .resend a {
+        color: var(--hospital-green);
+        text-decoration: none;
+    }
+    /* Fin estilos agregados para vista emailSent */
+    ```
+
+## Dia 3 (Vista Login)
