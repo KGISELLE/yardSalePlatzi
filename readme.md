@@ -263,7 +263,7 @@
 
 ## Dia 2 (Vista Email enviado)
 
-1. Para realizar la vista "emailSent" redisamos el diseño para desktop y para mobile dado.
+1. Para realizar la vista "emailSent" revisamos el diseño para desktop y para mobile dado.
 
 2. Creamos un nuevo archivo "emailSent.html" para crear el maquetado de esta vista.
 
@@ -323,4 +323,78 @@
     /* Fin estilos agregados para vista emailSent */
     ```
 
-## Dia 3 (Vista Login)
+## (Vista Login)
+
+1. Para realizar la vista "login" revisamos el diseño para desktop y para mobile dado, y hacemos exactamente los mismos pasos de la vista anterior.
+
+2. Creamos un nuevo archivo "login.html" para crear el maquetado de esta vista.
+
+3. Según la [clase 8 (Login)](https://platzi.com/clases/2477-frontend-developer-practico/41507-login/), podemos copiar el código que teniamos de la vista anterior "password", porque mucho de este código se puede reutilizar, lo único es depurar que elemento si coinciden y que no, y modificar algunos elementos, para así darle forma a la nueva vista.
+
+4. Creamos el archivo "login.css" para darle estilos al maquetado anterior y realizamos el mismo procedimiento copiamos los estilos de password y borramos lo que no necesitemos para la vista y modificamos lo necesario.
+
+5. Asi queda nuestro código:
+    ```html
+    <body>
+        <div class="login">
+            <div class="form-container">
+                <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+                <form action="/" class="form">
+                    <label for="email" class="label">Email address</label>
+                    <input type="text" name="" id="email" placeholder="emaildeprueba@email.com" class="input input-password">
+
+                    <label for="password" class="label"> Password</label>
+                    <input type="password" name="" id="new-password" placeholder="************" class="input input-password">
+
+                    <input type="submit" value="Login" class="primary-button login-button">
+
+                    <a href="/">Forgot my password</a>
+                </form>
+
+                <button class="secondary-button signup-button">Sign up</button>
+            </div>
+        </div>
+    </body>
+    ```
+    ```css
+    /* agregado para vista login */
+    .form a {
+        color: var(--hospital-green);
+        font-size: var(--sm);
+        text-align: center;
+        text-decoration: none;
+        margin-bottom: 52px;
+    }
+    /* Fin agregado para vista login */
+    /* agregado para vista login */
+    .input-email {
+        margin-bottom: 22px;    
+    }
+    /* Fin agregado para vista login */
+    /* agregado para vista login */
+    .secondary-button {
+        background-color: var(--white);
+        border-radius: 8px;
+        border: 1px solid var(--hospital-green);
+        color: var(--hospital-green);
+        width: 100%;
+        cursor: pointer;
+        font-size: var(--md);
+        font-weight: bold;
+        height: 50px;
+    }
+    /* Fin agregado para vista login */
+    @media (max-width: 640px) {
+        .logo{
+            display: block;
+        }
+        /* agregado para vista login */
+        .secondary-button {
+            position: absolute;
+            top: 90%;
+            width: inherit;
+        }
+        /* Fin agregado para vista login */
+    }
+    ```
