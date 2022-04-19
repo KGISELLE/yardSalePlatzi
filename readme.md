@@ -398,3 +398,279 @@
         /* Fin agregado para vista login */
     }
     ```
+
+## Dia 3 (Vista crear cuenta)
+
+1. Para realizar la vista "crear cuenta" revisamos el diseño para desktop y para mobile dado, y hacemos exactamente los mismos pasos de la vista anterior.
+
+2. Creamos un nuevo archivo "createAccount.html" para crear el maquetado de esta vista.
+
+3. Según la [clase 9 (Crear y editar mi cuenta)](https://platzi.com/clases/2477-frontend-developer-practico/41508-crear-y-editar-mi-cuenta/), podemos copiar el código que teniamos de la vista  "password", porque mucho de este código se puede reutilizar, lo único es depurar que elemento si coinciden y que no, y modificar algunos elementos, para así darle forma a la nueva vista.
+
+4. Creamos el archivo "createAccount.css" para darle estilos al maquetado anterior y realizamos el mismo procedimiento copiamos los estilos de password y borramos lo que no necesitemos para la vista y modificamos lo necesario.
+
+5. Para separar el boton de Create del resto del form en la vista mobile en el video se muestra una forma de realizarlo, que es dividiendo el form en un div aparte del button para que queden en contenedores distintos y con la ayuda de display: flex, situamos el div en la parte superior y el button en la parte inferior, detalle del código a continuación:
+
+    ```html
+    <body>
+        <div class="login">
+            <div class="form-container">
+                <h1 class="title">My account</h1>
+
+                <form action="/" class="form">
+                    <div>
+                        <label for="name" class="label">Name</label>
+                        <input type="text" name="" id="name" placeholder="Camila Yokoo" class="input input-name">
+        
+                        <label for="email" class="label">Email address</label>
+                        <input type="email" name="" id="email" placeholder="camilayokoo@gmail.com" class="input input-email">
+                        
+                        <label for="password" class="label">Password</label>
+                        <input type="password" name="" id="password" placeholder="************" class="input input-password">
+                    </div>
+
+                    <input type="submit" value="Create" class="primary-button login-button">
+                </form>
+            </div>
+        </div>
+    </body>
+    ```
+
+6. Y para el CSS, modificamos lo siguiente:
+    ```css
+    .title {
+    font-size: var(--lg);
+    /* Modificado para vista createAccount */
+    margin-bottom: 40px;
+    text-align:start;
+    }
+    /* agregado para vista createAccount */
+    .form div {
+        display: flex;
+        flex-direction: column;
+    }
+    /* Fin agregado para vista createAccount */
+    /* agregado para vista createAccount */
+    .input-name, 
+    .input-email,
+    .input-password {
+        margin-bottom: 22px;
+    }
+    /* Fin agregado para vista createAccount */
+    /* agregado para vista createAccount */
+    @media (max-width: 640px) {
+        .form-container {
+            height: 100%;
+        }
+        .form {
+            height: 100%;
+            justify-content: space-between;
+        }
+    }
+    /* Fin agregado para vista createAccount */
+
+## (Vista EditAccount)
+
+1. Para realizar la vista "editar cuenta" revisamos el diseño para desktop y para mobile dado, y hacemos exactamente los mismos pasos de las vistas anteriores.
+
+2. Creamos un nuevo archivo "editAccount.html" para crear el maquetado de esta vista.
+
+3. Según la [clase 10 (editar - mi cuenta)](https://platzi.com/clases/2477-frontend-developer-practico/41509-mi-cuenta/), podemos copiar el código que teniamos de la vista  "createAccount", porque mucho de este código se puede reutilizar, lo único es depurar que elementos si coinciden y que no, y modificar algunos elementos, para así darle forma a la nueva vista.
+
+4. Creamos el archivo "editAccount.css" para darle estilos al maquetado anterior y realizamos el mismo procedimiento copiamos los estilos de password y borramos lo que no necesitemos para la vista y modificamos lo necesario.
+
+5. Hay que cambiar el boton de primary a secondary y los inputs cambian por textos, cambiando los inputs por párrafos, quedando el código así:
+    ```html
+    <body>
+        <div class="login">
+            <div class="form-container">
+                <h1 class="title">My account</h1>
+
+                <form action="/" class="form">
+                    <div>
+                        <label for="name" class="label">Name</label>
+                        <p class="value">Camila Yokoo</p>
+        
+                        <label for="email" class="label">Email address</label>
+                        <p class="value">camilayokoo@gmail.com</p>
+                        
+                        <label for="password" class="label">Password</label>
+                        <p class="value">************</p>
+                    </div>
+
+                    <input type="submit" value="Edit" class="secondary-button login-button">
+                </form>
+            </div>
+        </div>
+    </body>
+    ```
+
+    ```css
+    /* agregado para vista editAccount */
+    .value {
+        color: var(--very-light-pink);
+        font-size: var(--md);
+        margin: 8px 0px 32px 0px;
+    }
+    /* Fin agregado para vista editAccount */
+
+    /* Modificado para vista editAccount */
+    .secondary-button {
+        background-color: var(--white);
+        border-radius: 8px;
+        border: 1px solid var(--hospital-green);
+        color: var(--hospital-green);
+        width: 100%;
+        cursor: pointer;
+        font-size: var(--md);
+        font-weight: bold;
+        height: 50px;
+    }
+    /* Fin Modificado para vista editAccount */
+    ```
+***NOTA: Hasta aquí se han creado las vistas de autenticación, ahora crearemos las vistas principales.***
+
+<br>
+
+## Vista Principal - Inicio
+
+1. Lo primero para crear esta vista main, es comenzar por el crear el archivo "mainView.html" para crear el maquetado de esta vista.
+
+2. Según la [clase 11 (Página de inicio: HTML)](https://platzi.com/clases/2477-frontend-developer-practico/41510-pagina-de-inicio-html/), pegamos los links de google font que ya habiamos utilizado en otras vistas, y tambien realizamos el enlace a una hoja de estilos para esta vista.
+
+3. Creamos el archivo "mainView.css" para darle estilos al maquetado anterior y realizamos el mismo procedimiento pegando las variables de las vistas anteriores.
+
+4. Para comenzar a crear las cards con las imagenes , creamos una etiqueta `<section>` dentro de `<body>`.
+    ```html
+    <body>
+        <section class="main-container">
+            <div class="card-container">
+
+                <!-- esquema card -->
+                <div class="product-card">
+                    <img src="" alt="" class="product">
+                    <div>
+                        <p>$120,00</p>
+                        <p>Bike</p>
+                    </div>
+                    <figure>
+                        <img src="./icons/bt_add_to_cart.svg" alt="">
+                    </figure>
+                </div>
+                <!-- esquema card -->
+                
+            </div>
+        </section>
+    </body>
+    ```
+
+5. Ya teniendo el esquema de una card copiamos este código y lo replicamos cuantas veces lo necesitemos.
+
+6. Ahora vamos a buscar las imagenes para los productos, las podemos decargar de [www.pixels.com](https://www.pexels.com/es-es/), copiando la url de la imagen (click derecho > copiar dirección de imagen) y la pegamos en la src de la etiqueta `<img>`.
+
+7. Ahora le daremos los estilos a nuestra "mainView" en el archivo "mainView.css", seguimos indicaciones de la [clase 12 (Página de inicio: CSS)](https://platzi.com/clases/2477-frontend-developer-practico/41511-pagina-de-inicio-css/).
+
+8. Así queda nuestro código en html y css:
+    ```html
+    <body>
+        <section class="main-container">
+            <div class="cards-container">
+
+                <div class="product-card">
+                    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" class="product">
+                    <div class="product-info">
+                        <div>
+                            <p>$120,00</p>
+                            <p>Bike</p>
+                        </div>
+                        <figure>
+                            <img src="./icons/bt_add_to_cart.svg" alt="">
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- Repeticiún de product-card cuantas veces se necesite -->
+                <div class="product-card">...
+                </div>
+                
+            </div>
+        </section>
+    </body>
+    ```
+
+    ```css
+    :root {
+    /* colores */
+    --very-light-pink: #C7C7C7;
+    --white: #FFFFFF;
+    --text-input-field: #F7F7F7;
+    --black: #000000;
+    --hospital-green: #ACD9B2;
+    --dark: #232830;
+    /* tamaño de letras */
+    --sm: 14px;
+    --md: 16px;
+    --lg: 18px;
+    /* Tamaño de las cards*/
+    --card-size: 210px;
+    }
+    body {
+        font-family: 'Quicksand', sans-serif;
+        margin: 0;
+    }
+
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, var(--card-size));
+        gap: 26px;
+        place-content: center;
+    }
+    .product-card {
+        width: var(--card-size);
+    }
+    .product-card img{
+        width: var(--card-size);
+        height: var(--card-size);
+        border-radius: 20px;
+        object-fit: cover;
+    }
+    .product-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+    }
+    .product-info figure{
+        margin: 0;
+        display: flex;
+    }
+    .product-info figure img{
+        width: 40px;
+        height: 40px; 
+    }
+    .product-info div p:nth-child(1){
+        font-weight: bold;
+        font-size: var(--md);
+        margin-top: 0;
+        margin-bottom: 4px;
+    }
+    .product-info div p:nth-child(2){
+        font-size: var(--sm);
+        margin-top: 0;
+        margin-bottom: 0;
+        color: var(--very-light-pink);
+    }
+
+    @media(max-width: 640px) {
+        .cards-container {
+            grid-template-columns: repeat(auto-fill, 140px);
+        }
+        .product-card {
+            width: 140px;
+        }
+        .product-card img{
+            width: 140px;
+            height: 140px;
+        }
+    }
+    ```
