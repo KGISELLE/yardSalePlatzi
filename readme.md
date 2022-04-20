@@ -674,3 +674,401 @@
         }
     }
     ```
+
+
+## Dia 4 (Vista Menú desktop)
+
+1. Según la [clase 13 (Menú desktop)](https://platzi.com/clases/2477-frontend-developer-practico/41512-menu-desktop/), crearmos un nuevo archivo para realizar nuestro menu desktop "desktopMenu.html".
+
+2. creamos nuestro archivo de estilos "desktopMenu.css", y lo vinculamos con nuestro archivo HTML y traermos tambien los links del tipo de letra de google fonts.
+
+3. Creamos la estructura inicial html:5, quedando así:
+    ```html
+    <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <!-- Links fuentes de google fonts -->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+
+            <!-- Traer hoja de estilos CSS -->
+            <link rel="stylesheet" href="styles/desktopMenu.css">
+
+            <title>Document</title>
+        </head>
+        <body>
+            <div class="desktop-menu">
+                <ul>
+                    <li>
+                        <a href="/">My orders</a>
+                    </li>
+
+                    <li>
+                        <a href="/">My account</a>
+                    </li>
+
+                    <li>
+                        <a href="/">Sign out</a>
+                    </li>
+                </ul>
+
+            </div>
+            
+        </body>
+    </html>
+    ```
+
+4. Comenzamos a darle estilos en nuestro archivo "desktopMenu.css", copiando las variables y la configuración inicial, quedando así:
+    ```css
+    :root {
+    /* colores */
+    --very-light-pink: #C7C7C7;
+    --white: #FFFFFF;
+    --text-input-field: #F7F7F7;
+    --black: #000000;
+    --hospital-green: #ACD9B2;
+    --dark: #232830;
+    /* tamaño de letras */
+    --sm: 14px;
+    --md: 16px;
+    --lg: 18px;
+    }
+    body {
+        font-family: 'Quicksand', sans-serif;
+        margin: 0;
+    }
+
+    .desktop-menu {
+        width: 100px;
+        height: auto;
+        border: 1px solid var(--very-light-pink);
+        border-radius: 6px;
+        padding: 20px 20px 0px 20px;
+    }
+    .desktop-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .desktop-menu ul li{
+        text-align: end;
+    }
+    .desktop-menu ul li:nth-child(1),
+    .desktop-menu ul li:nth-child(2) {
+        font-weight: bold;
+    }
+    .desktop-menu ul li:last-child{
+        padding-top: 20px;
+        border-top: 1px solid var(--very-light-pink);
+    }
+    .desktop-menu ul li:last-child a{
+        color: var(--hospital-green);
+        font-size: var(--sm);
+    }
+    .desktop-menu ul li a{
+        color: var(--dark);
+        text-decoration: none;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+    ```
+
+***Nota: Recordar que a los elementos inline no se les puede aplica la propiedad margin en top y bottom, pero si aplica en left y right.***
+
+## (Vista Menú mobile)
+
+1. Según la [clase 14 (Menú mobile)](https://platzi.com/clases/2477-frontend-developer-practico/41513-menu-mobile/), crearmos un nuevo archivo para realizar nuestro menu mobile "mobileMenu.html".
+
+2. Creamos nuestro archivo de estilos "mobileMenu.css", y lo vinculamos con nuestro archivo HTML y traermos tambien los links del tipo de letra de google fonts.
+
+3. Creamos la estructura inicial html:5, quedando así:
+    ```html
+    <body>
+        <div class="mobile-menu">
+            <ul>
+                <li>
+                    <a href="/">CATEGORIES</a>
+                </li>
+
+                <li>
+                    <a href="/">All</a>
+                </li>
+
+                <li>
+                    <a href="/">Clothes</a>
+                </li>
+                
+                <li>
+                    <a href="/">Electronics</a>
+                </li>
+
+                <li>
+                    <a href="/">Furnitures</a>
+                </li>
+
+                <li>
+                    <a href="/">Toys</a>
+                </li>
+
+                <li>
+                    <a href="/">Others</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <a href="/">My orders</a>
+                </li>
+
+                <li>
+                    <a href="/">My account</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <a href="/" class="email">platzi@example.com</a>
+                </li>
+
+                <li>
+                    <a href="/" class="sign-out">Sign out</a>
+                </li>
+            </ul>
+        </div>
+    
+    </body>
+    ```
+4. Comenzamos a darle estilos en nuestro archivo "desktopMenu.css", copiando las variables y la configuración inicial, quedando así:
+    ```css
+    .mobile-menu {
+    padding: 24px;
+    }
+    .mobile-menu a {
+        text-decoration: none;
+        color: var(--black);
+        font-weight: bold;
+    }
+    .mobile-menu ul {
+        padding: 0;
+        margin: 24px 0 0;
+        list-style: none;
+    }
+    .mobile-menu ul li {
+        margin-bottom: 24px;
+    }
+    .mobile-menu ul:nth-child(1) {
+        border-bottom: 1px solid var(--very-light-pink);
+    }
+    .email {
+    font-size: var(--sm);
+    font-weight: 300 !important;
+    }
+    .mobile-menu .sign-out {
+        font-size: var(--sm);
+        color: var(--hospital-green);
+    }
+    .mobile-menu ul:last-child{
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 50px;
+    }
+    .mobile-menu ul:last-child li{
+        margin: 8px;
+    }
+
+    ```
+
+***Nota: Por el tema de la especificidad hay algunos estilos que no es estaban aplicacndo en la clase email, así que acá hacemos uso de !important, pero solo debe usarse en casos muy especificos como este por que si no nuestro código no identificará los estilos que realmente prevalecen sobre otros. Otra opcion es no colocar el !important solamente colocarle mas peso a la notacion de la clase, ej: .mobile-menu .sign-out.***
+
+
+## (Vista myOrder)
+
+1. Según la [clase 15 (Mi orden: HTML)](https://platzi.com/clases/2477-frontend-developer-practico/41514-mi-orden-html/), crearmos un nuevo archivo para realizar la vista "myOrder.html".
+
+2. Creamos nuestro archivo de estilos "myOrder.css", y lo vinculamos con nuestro archivo HTML y traermos tambien los links del tipo de letra de google fonts.
+
+3. Creamos la estructura html:5, quedando así:
+    ```html
+    <body>
+        <div class="my-order">
+            <div class="my-order-container">
+                <h1 class="title">My order</h1>
+                <div class="my-order-content">
+                    <div class="order">
+                        <p>
+                            <span>19.04.22</span>
+                            <span>6 articulos</span>
+                        </p>
+                        <p>$560.00</p>
+                    </div>
+
+                    <div class="shopping-cart">
+                        <figure>
+                            <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="bike">
+                        </figure>
+                        <p>Bike</p>
+                        <p>$30.00</p>
+                    </div>
+
+                    <div class="shopping-cart">...
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </body>
+    ```
+
+4. Según la [clase 16 (Mi orden: CSS)](https://platzi.com/clases/2477-frontend-developer-practico/41515-mi-orden-css/), para darle estilos al esquema html anterior.
+
+5. Comenzamos a darle estilos en nuestro archivo "myOrder.css", copiando las variables y la configuración inicial, quedando así:
+    ```css
+    .my-order {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    }
+    .title {
+        font-size: var(--lg);
+        margin-bottom: 40px;
+    }
+    .my-order-container {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        width: 300px;
+    }
+    .my-order-content {
+        display: flex;
+        flex-direction: column;
+    }
+    .order {
+        background-color: var(--text-input-field);
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 16px;
+        align-items: center;
+        margin-bottom: 24px;
+        border-radius: 8px;
+        padding: 0px 24px;
+    }
+    .order p:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+    }
+    .order p:nth-child(2) {
+        text-align: end;
+        font-weight: bold;
+    }
+    .order p span:nth-child(1) {
+        font-size: var(--md);
+        font-weight: bold;
+    }
+    .order p span:nth-child(2) {
+        font-size: var(--sm);
+        color: var(--very-light-pink);
+    }
+    .shopping-cart {
+        display: grid;
+        grid-template-columns: auto 1fr auto auto;
+        gap: 16px;
+        margin-bottom: 24px;
+        align-items: center;
+    }
+    .shopping-cart figure {
+        margin: 0;
+    }
+    .shopping-cart figure img {
+        width: 70px;
+        height: 70px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+    .shopping-cart p:nth-child(2) {
+        color: var(--very-light-pink);
+    }
+    .shopping-cart p:nth-child(3) {
+        font-size: var(--md);
+        font-weight: bold;
+    }
+    ```
+
+## (Vista myOrders)
+
+1. Según la [clase 17 (Mis órdenes)](https://platzi.com/clases/2477-frontend-developer-practico/41516-mis-ordenes/), creamos un nuevo archivo para realizar la vista "myOrders.html" y copiamos y pegamos el código de la anterior vista "myOrder.html", y realizamos las modificaciones que se necesiten, quedando así:
+    ```html
+    <body>
+        <div class="my-order">
+            <div class="my-order-container">
+                <h1 class="title">My orders</h1>
+                <div class="my-order-content">
+                    <div class="order">
+                        <p>
+                            <span>19.04.22</span>
+                            <span>6 articulos</span>
+                        </p>
+                        <p>$560.00</p>
+
+                        <img src="/icons/flechita.svg" alt="arrow">
+                    </div>
+
+                    <div class="order">....
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+    ```
+
+2. Creamos nuestro archivo de estilos "myOrdera.css", y lo vinculamos con nuestro archivo HTML, copiamos el código de la anterior vista "myOrder.css" y realizamos las modificaciones necesarias, quedando así:
+    ```css
+    .my-order {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    }
+    .title {
+        font-size: var(--lg);
+        margin-bottom: 40px;
+    }
+    .my-order-container {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        width: 300px;
+    }
+    .my-order-content {
+        display: flex;
+        flex-direction: column;
+    }
+    .order {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 16px;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+    .order p:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+    }
+    .order p:nth-child(2) {
+        text-align: end;
+        font-weight: bold;
+    }
+    .order p span:nth-child(1) {
+        font-size: var(--md);
+        font-weight: bold;
+    }
+    .order p span:nth-child(2) {
+        font-size: var(--sm);
+        color: var(--very-light-pink);
+    }
+    ```
+
