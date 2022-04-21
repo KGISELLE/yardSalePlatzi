@@ -1072,3 +1072,365 @@
     }
     ```
 
+
+## Dia 5 (Navbar)
+
+1. Según la [clase 18 (Navbar: HTML)](https://platzi.com/clases/2477-frontend-developer-practico/41517-navbar-html/), crearmos un nuevo archivo "navbar.html" para realizar el Navbar que se verá en todas las vistas en versión desktop y versión mobile, por lo cual lo realizaremos todo en un solo archivo html pero esconderemos y mostraremos otros elementos dependiendo el dispositivo.
+
+2. Creamos nuestro archivo de estilos "navbar.css", y lo vinculamos con nuestro archivo HTML y traermos tambien los links del tipo de letra de google fonts.
+
+3. Creamos la estructura html:5, quedando así:
+    ```html
+    <body>
+        <nav>
+            <img src="/icons/icon_menu.svg" alt="menu" class="menu">
+
+            <div class="navbar-left">
+                <img src="/logos/logo_yard_sale.svg" alt="logo" class="logo">
+
+                <ul>
+                    <li>
+                        <a href="/">All</a>
+                    </li>
+                    <li>
+                        <a href="/">Clothes</a>
+                    </li>
+                    <li>
+                        <a href="/">Electronics</a>
+                    </li>
+                    <li>
+                        <a href="/">Furnitures</a>
+                    </li>
+                    <li>
+                        <a href="/">Toys</a>
+                    </li>
+                    <li>
+                        <a href="/">Others</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar-right">
+                <ul>
+                    <li class="navbar-email">platzi@example.com</li>
+                    <li class="navbar-shopping-cart">
+                        <img src="/icons/icon_shopping_cart.svg" alt="shopping cart">
+                        <div>2</div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </body>
+    ```
+
+4. Según la [clase 19 (Navbar: CSS)](https://platzi.com/clases/2477-frontend-developer-practico/41518-navbar-css/), para darle estilos al esquema html anterior.
+
+5. Comenzamos a darle estilos en nuestro archivo "navbar.css", copiando las variables y la configuración inicial, quedando así:
+    ```css
+    nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--very-light-pink);
+    }
+    .menu {
+        display: none;
+    }
+    .logo {
+        width: 100px;
+    }
+    .navbar-left {
+        display: flex;
+        margin-left: 12px;
+    }
+    .navbar-left ul {
+        margin-left: 12px;
+    }
+    .navbar-left ul li a,
+    .navbar-right ul li a {
+        text-decoration: none;
+        color: var(--very-light-pink);
+        border: 1px solid var(--white);
+        padding: 8px;
+    }
+    .navbar-left ul li a:hover,
+    .navbar-right ul li a:hover {
+        color: var(--hospital-green);
+        border: 1px solid var(--hospital-green);
+        border-radius: 8px;
+    }
+    .navbar-left ul,
+    .navbar-right ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        height: 60px;
+    }
+    .navbar-email {
+    color: var(--dark);
+    font-size: var(--sm);
+    margin-right: 12px; 
+    }
+    .navbar-shopping-cart {
+        position: relative;
+    }
+    .navbar-shopping-cart div {
+        width: 17px;
+        height: 17px;
+        background-color: var(--hospital-green);
+        border-radius: 50px;
+        font-size: var(--sm);
+        font-weight: bold;
+        position: absolute;
+        top: -8px;
+        right: -5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media (max-width: 640px) {
+        .menu {
+            display: block;
+        }
+        .navbar-left ul {
+            display: none;
+        }
+        .navbar-email {
+            display: none;
+        }
+    }
+    ```
+
+## (Vista Detalle Producto)
+
+1. Según la [clase 20 (Detalle de producto)](https://platzi.com/clases/2477-frontend-developer-practico/41572-detalle-de-producto/), creamos un nuevo archivo para realizar la vista "details.html" y copiamos y pegamos el el tipo de letra de google fonts y vinculamos el archivo css para esta vista, y comenzamos con la maquetacion para esta vista, quedando así:
+    ```html
+    <body>
+        <aside class="product-detail">
+            <div class="product-detail-close">
+                <img src="/icons/icon_close.png" alt="close">
+            </div>
+
+            <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="bike">
+            <div class="product-info">
+                <p>$35,00</p>
+                <p>Bike</p>
+                <p>With its functional and practical interior, this refrigerator also fulfills a decorative function, adding personality and a retro-vintage aesthetic to your kitchen or workplace</p>
+                <button class="primary-button add-to-cart-button">
+                    <img src="/icons/bt_add_to_cart.svg" alt="add to cart">
+                    Add to cart
+                </button>
+            </div>
+        </aside>
+    </body>
+    ```
+
+2. Creamos nuestro archivo de estilos "details.css", y lo vinculamos con nuestro archivo HTML y realizamos las configuraciones iniciales de estilo de variables y body, y así seguimos para darle estilos a la maquetación de "details.html", quedando así:
+    ```css
+    .product-detail {
+    width: 360px;
+    padding-bottom: 24px;
+    position: absolute;
+    right: 0;
+    }
+    .product-detail-close {
+        background-color: var(--white);
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        padding: 12px;
+        border-radius: 50%;
+    }
+    .product-detail-close:hover {
+        cursor: pointer;
+    }
+    .product-detail > img:nth-child(2) {
+        width: 100%;
+        height: 360px;
+        object-fit: cover;
+        border-radius: 0 0 20px 20px;
+    }
+    .product-info {
+        margin: 24px 24px 0 24px;
+    }
+    .product-info p:nth-child(1) {
+        font-weight: bold;
+        font-size: var(--md);
+        margin-top: 0;
+        margin-bottom: 4px;
+    }
+    .product-info p:nth-child(2) {
+        color: var(--very-light-pink);
+        font-size: var(--md);
+        margin-top: 0;
+        margin-bottom: 36px;
+    }
+    .product-info p:nth-child(3) {
+        color: var(--very-light-pink);
+        font-size: var(--sm);
+        margin-top: 0;
+        margin-bottom: 36px;
+    }
+    .primary-button {
+        background-color: var(--hospital-green);
+        border-radius: 8px;
+        border: none;
+        color: var(--white);
+        width: 100%;
+        cursor: pointer;
+        font-size: var(--md);
+        font-weight: bold;
+        height: 50px;
+    }
+    .add-to-cart-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media (max-width: 640px) {
+        .product-detail {
+            width: 100%;
+        }
+    }
+    ```
+
+***Nota: Al agregar la propiedad position: absolute; en css podemos utilizar otras propiedades como top y left para posicionar nuestro elemento.***
+
+
+## (Carrito de compras)
+
+1. Según la [clase 21 (Carrito de compras: HTML)](https://platzi.com/clases/2477-frontend-developer-practico/41573-carrito-de-compras-html/), crearmos un nuevo archivo "cart.html" para realizar el carrito de compras, en la vista "details.html" y "myOrder.html", tenemos una estructura muy parecida que podemos reutilizar.
+
+2. Creamos nuestro archivo de estilos "cart.css", y lo vinculamos con nuestro archivo HTML y traermos tambien los links del tipo de letra de google fonts.
+
+3. Creamos la estructura html:5, quedando así:
+    ```html
+    <body>
+        <aside class="product-detail">
+            <div class="title-container">
+                <img src="/icons/flechita.svg" alt="arrow">
+                <p class="title">My order</p>
+            </div>
+            <div class="my-order-content">
+                
+                <div class="shopping-cart">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="bike">
+                    </figure>
+                    <p>Bike</p>
+                    <p>$30.00</p>
+                    <img src="/icons/icon_close.png" alt="close">
+                </div>
+                
+                <div class="shopping-cart">...
+                </div>
+
+                <div class="order">
+                    <p>
+                        <span>Total</span>
+                    </p>
+                    <p>$560.00</p>
+                </div>
+
+                <button class="primary-button">
+                    Checkout
+                </button>
+            </div>
+        </aside>
+    </body>
+    ```
+
+4. Comenzamos a darle estilos a la maquetación de "cart.html", quedando así:
+    ```css
+    .product-detail {
+    width: 360px;
+    padding: 24px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    }
+    .title-container {
+        display: flex;
+    }
+    .title-container img {
+        transform: rotate(180deg);
+        margin-right: 14px;
+    }
+    .title {
+        font-size: var(--lg);
+        font-weight: bold;
+    }
+    .my-order-content {
+        display: flex;
+        flex-direction: column;
+    }
+    .order {
+        background-color: var(--text-input-field);
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 16px;
+        align-items: center;
+        margin-bottom: 24px;
+        border-radius: 8px;
+        padding: 0px 24px;
+    }
+    .order p:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+    }
+    .order p:nth-child(2) {
+        text-align: end;
+        font-weight: bold;
+    }
+    .order p span:nth-child(1) {
+        font-size: var(--md);
+        font-weight: bold;
+    }
+    .shopping-cart {
+        display: grid;
+        grid-template-columns: auto 1fr auto auto;
+        gap: 16px;
+        margin-bottom: 24px;
+        align-items: center;
+    }
+    .shopping-cart figure {
+        margin: 0;
+    }
+    .shopping-cart figure img {
+        width: 70px;
+        height: 70px;
+        border-radius: 20px;
+        object-fit: cover;
+    }
+    .shopping-cart p:nth-child(2) {
+        color: var(--very-light-pink);
+    }
+    .shopping-cart p:nth-child(3) {
+        font-size: var(--md);
+        font-weight: bold;
+    }
+
+    .primary-button {
+        background-color: var(--hospital-green);
+        border-radius: 8px;
+        border: none;
+        color: var(--white);
+        width: 100%;
+        cursor: pointer;
+        font-size: var(--md);
+        font-weight: bold;
+        height: 50px;
+    }
+
+    @media (max-width: 640px) {
+        .product-detail {
+            width: 100%;
+        }
+    }
+    ```
